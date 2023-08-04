@@ -105,8 +105,6 @@ jobs:
             test: test_autoscaler.sh
           - version: v1_15
             test: test_autoscaler.sh
-          - version: v1_16
-            test: test_autoscaler.sh
     name: e2e_ci
     steps:
       - uses: actions/checkout@v2
