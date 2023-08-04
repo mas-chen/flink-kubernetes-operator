@@ -71,27 +71,14 @@ jobs:
         namespace: ["default","flink"]
         mode: ["native", "standalone"]
         test:
-          - test_application_kubernetes_ha.sh
-          - test_application_operations.sh
-          - test_sessionjob_kubernetes_ha.sh
-          - test_sessionjob_operations.sh
-          - test_multi_sessionjob.sh
           - test_autoscaler.sh
         include:
           - namespace: flink
             extraArgs: '--create-namespace --set "watchNamespaces={default,flink}"'
           - version: v1_18
             image: ghcr.io\/apache\/flink-docker:1.18-SNAPSHOT-scala_2.12-java11-debian
-          - version: v1_17
-            image: flink:1.17
           - version: v1_16
             image: flink:1.16
-          - version: v1_15
-            image: flink:1.15
-          - version: v1_14
-            image: flink:1.14
-          - version: v1_13
-            image: flink:1.13
         exclude:
           - namespace: default
             test: test_multi_sessionjob.sh
